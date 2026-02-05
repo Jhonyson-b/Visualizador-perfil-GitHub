@@ -168,3 +168,28 @@ main {
 .card .pofile-info p {
   color: var(--muted-foreground);
 }
+
+.loading {
+  font-size: var(--font-lg);
+  font-weight: 500;
+  margin-top: var(--spacing-x1);
+}
+
+.profile-conters {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  margin: 80px 0;
+}
+
+.profile-conters h3 {
+  font-weight: normal;
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.profile-conters span {
+  font-size: 2rem;
+  font-weight: bold;
+}
