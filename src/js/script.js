@@ -44,4 +44,9 @@ const handleSearch = async () => {
 
 // Eventos
 btnSearch.addEventListener('click', handleSearch)
+inputSearch.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        handleSearch()
+    }
+})
 
