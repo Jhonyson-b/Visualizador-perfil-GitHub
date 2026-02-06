@@ -1,4 +1,5 @@
-import { fetchUser } from './api.js'
+// API
+import { fetchUser, fetchUserRepos } from './api.js'
 import {
     renderLoading,
     renderUser,
@@ -8,11 +9,13 @@ import {
     showEmptyInputAlert
 } from './ui.js'
 
+// DOM
 const inputSearch = document.getElementById('input-search')
 const btnSearch = document.getElementById('btn-search')
 const profileResults = document.querySelector('.profile-results')
 
 
+// Fluxo principal
 const handleSearch = async () => {
     const valorInput = inputSearch.value.trim()
 
@@ -25,7 +28,8 @@ const handleSearch = async () => {
 
     try {
         const userData = await fetchUser(valorInput)
-        renderUser(profileResults, userData)
+        const userRepos = await fetchUserRepos(valorInput)
+        renderUser(profileResults, userData, userRepos)
     } catch (error) {
         if (error?.message === 'Usuário não encontrado') {
             showNotFoundAlert()
@@ -38,5 +42,6 @@ const handleSearch = async () => {
     }
 }
 
+// Eventos
 btnSearch.addEventListener('click', handleSearch)
 
